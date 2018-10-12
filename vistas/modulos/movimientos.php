@@ -15,7 +15,7 @@
 	</div>
 
 	
-	<!-- Monto -->
+	<!-- MONTO -->
 	<div class="form-group row">
 
 		<label for="inpMonto" class="col-sm-2 col-form-label">Monto</label>
@@ -31,7 +31,7 @@
 	<!-- DESCRIPCION -->
 	<div class="form-group row">
 
-		<label for="inpMonto" class="col-sm-2 col-form-label">Monto</label>
+		<label for="inpMonto" class="col-sm-2 col-form-label">Descripción</label>
 
 		<div class="col-sm-10">
 
@@ -41,54 +41,57 @@
 
 	</div>
 
-	<!-- -OPCIONES EFECTIVO / TARJETA -->
-	<!--div class="custom-control custom-radio custom-control-inline">
-  		
-  		<input type="radio" id="forma_pago_efe" name="forma_pago" class="custom-control-input">
-  	
-  		<label class="custom-control-label" for="forma_pago_efe">Efectivo</label>
-	
-	</div>
+<!-- ENTRADA PARA SELECCIONAR INGRESO/EGRESO -->
+  <div class="form-group row">
 
-	<div class="custom-control custom-radio custom-control-inline">
-  		
-  		<input type="radio" id="forma_pago_tc" name="forma_pago" class="custom-control-input">
-  
-  		<label class="custom-control-label" for="forma_pago_tc">Tarjeta</label>
-	</div-->
+  <label for="tipo" class="col-sm-2 col-form-label">Tipo movimiento</label>
 
-   
-    <!-- ENTRADA PARA SELECCIONAR FORMA PAGO -->
-   <div class="form-group row">
-    
-    <label for="forma_pago" class="col-sm-2 col-form-label">Forma Pago</label>
-
-    <div class="col-sm-10">
-      <select class="form-control" name="forma_pago">
-          
-          <option value="">Selecionar forma pago</option>
-
-         <?php
-
-          $item = null;
-          $valor = null;
-
-          $obj = ControladorFormaPagos::ctrMostrarFormaPagos($item, $valor);
-
-
-          foreach ($obj as $key => $value) {
-           
-            echo '<option value="'.$value["id"].'">'.$value["nombre"].'</option>';
-
-          }
-
-        ?>
+  <div class="col-sm-10">
+    <select class="form-control" name="tipo">
         
-        </select>
+        <option value="0">Selecionar tipo</option>
 
-      </div>
-    
+        <option value="1">INGRESO</option>
+
+        <option value="2">EGRESO</option>
+
+      </select>
+
     </div>
+
+  </div>
+	  
+  <!-- ENTRADA PARA SELECCIONAR FORMA PAGO -->
+  <div class="form-group row">
+
+  <label for="forma_pago" class="col-sm-2 col-form-label">Forma Pago</label>
+
+  <div class="col-sm-10">
+    <select class="form-control" name="forma_pago">
+        
+        <option value="">Selecionar forma pago</option>
+
+       <?php
+
+        $item = null;
+        $valor = null;
+
+        $obj = ControladorFormaPagos::ctrMostrarFormaPagos($item, $valor);
+
+
+        foreach ($obj as $key => $value) {
+         
+          echo '<option value="'.$value["id"].'">'.$value["nombre"].'</option>';
+
+        }
+
+      ?>
+      
+      </select>
+
+    </div>
+
+  </div>
 
 
  	<button type="submit" class="btn btn-primary">Guardar cambios</button>

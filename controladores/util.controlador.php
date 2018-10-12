@@ -24,7 +24,7 @@ class Util{
 	static function escribe_log($data){
 		$fecha = date('Ymd', time());
 		$hora = date('H', time());
-		$file = fopen("log" . "_" . $fecha . "_" . $hora . ".log", "a+");
+		$file = fopen("logs/log" . "_" . $fecha . "_" . $hora . ".log", "a+");
 		fwrite($file, " " . PHP_EOL);
 		fwrite($file, " " . PHP_EOL);
 		fwrite($file, "[" . date('m/d/Y h:i:s a', time()) . "][INFO]         " . $data . " " . PHP_EOL);

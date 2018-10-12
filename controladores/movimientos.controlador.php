@@ -11,6 +11,7 @@ class ControladorMovimientos{
 
 		Util::js_console_log("ctrMostrarMovimientos");
 		//Util::js_alert("ctrMostrarMovimientos");
+		Util::escribe_log("ctrMostrarMovimientos");
 
 		$respuesta = ModeloMovimientos::mdlMostrarMovimientos($item, $valor);
 
@@ -23,9 +24,11 @@ class ControladorMovimientos{
 
 	static public function ctrCrearMovimiento(){
 		Util::js_console_log('ctrCrearMovimiento');
+		//Util::js_console_log($_POST);
 
 		if(isset($_POST["fecha"])
 			&& (isset($_POST["monto"]))
+			&& (isset($_POST["tipo"]) && ($_POST["tipo"]==1 || $_POST["tipo"]==2)) // && $_POST["tipo"] IN (1,2))
 			&& (isset($_POST["descripcion"]))
 			&& (isset($_POST["forma_pago"]) && $_POST["forma_pago"]>0)
 		){
@@ -34,6 +37,7 @@ class ControladorMovimientos{
 			
 			$datos = array("fecha" => $_POST["fecha"],
 					"monto" => $_POST["monto"],
+					"ingreso_egreso" => $_POST["tipo"],
 					"descripcion" => $_POST["descripcion"],
 					"id_forma_pago" => $_POST["forma_pago"]);
 
@@ -65,6 +69,10 @@ class ControladorMovimientos{
 		}else{
 			if(isset($_POST["forma_pago"]) && $_POST["forma_pago"]==0)
 				Util::js_alert("Debe seleccionar forma de pago.");
+
+			if(isset($_POST["tipo"]) && ($_POST["tipo"]<1 || $_POST["tipo"]>3))
+				Util::js_alert("Debe seleccionar un tipo movimiento valido.");
+
 		}
 
 	}
