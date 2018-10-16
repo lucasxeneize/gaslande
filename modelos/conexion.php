@@ -15,11 +15,18 @@ class Conexion{
 	}
 
 	// QUERY GENERICA
-	static public function query($tabla, $item, $valor){
+	static public function query($tabla, $item, $valor, $order){
+
+		if($order != null)
+			$order="ORDER BY ".$order;
+		else
+			$order="";
+
+		//Util::js_console_log("conectar::query".$order);
 
 		if($item != null){
 
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item $order");
 
 			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
 
@@ -29,8 +36,8 @@ class Conexion{
 
 		}else{
 
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
-
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla $order");
+		
 			$stmt -> execute();
 
 			return $stmt -> fetchAll();

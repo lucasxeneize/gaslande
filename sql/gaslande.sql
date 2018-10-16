@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-10-2018 a las 22:25:10
+-- Tiempo de generación: 16-10-2018 a las 20:36:22
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -45,7 +45,20 @@ INSERT INTO `movimientos` (`id`, `fecha`, `monto`, `ingreso_egreso`, `descripcio
 (20, '02/05/2018', 540000, 0, 'Cena', 2),
 (21, '21/12/2017', 150, 0, 'Venta usd', 1),
 (22, '02/02/2017', 1509000, 1, 'prueba movimiento', 1),
-(23, '21/12/2017', 11111, 2, 'egreso', 2);
+(23, '21/12/2017', 11111, 2, 'egreso', 2),
+(24, '02/05/2018', 454545, 2, '4545drf', 1),
+(25, '02/05/2018', 454545, 2, '4545drf', 1),
+(26, '02/05/2018', 454545, 2, '4545drf', 1),
+(27, '02/05/2018', 454545, 2, '4545drf', 1),
+(28, '02/05/2018', 98000, 1, '3/4', 2),
+(29, '02/05/2018', 98000, 1, '3/4', 2),
+(30, '02/05/2018', 98000, 1, '3/4', 2),
+(31, '02/05/2018', 98000, 1, '3/4', 2),
+(32, '02/05/2018', 98000, 1, '3/4', 2),
+(33, '02/05/2018', 98000, 1, '3/4', 2),
+(34, '2018-10-16', 2220, 2, '', 2),
+(35, '2018-10-16', 2220, 2, '', 2),
+(36, '2018-10-16', 2220, 2, '', 2);
 
 --
 -- Índices para tablas volcadas
@@ -66,7 +79,7 @@ ALTER TABLE `movimientos`
 -- AUTO_INCREMENT de la tabla `movimientos`
 --
 ALTER TABLE `movimientos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- Restricciones para tablas volcadas

@@ -8,9 +8,9 @@ class ModeloMovimientos{
 	MOSTRAR MOVIMIENTO/S
 	=============================================*/
 
-	static public function mdlMostrarMovimientos($item, $valor){
+	static public function mdlMostrarMovimientos($item, $valor, $order){
 
-		return Conexion::query("movimientos", $item, $valor);
+		return Conexion::query("movimientos", $item, $valor, $order);
 
 	}
 

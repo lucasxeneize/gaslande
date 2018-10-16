@@ -10,8 +10,9 @@ class ControladorFormaPagos{
 	static public function ctrMostrarFormaPagos($item, $valor){
 
 		Util::js_console_log("ctrMostrarFormaPagos");
+		$order=null;
 
-		$respuesta = ModeloFormaPagos::mdlMostrarFormaPagos($item, $valor);
+		$respuesta = ModeloFormaPagos::mdlMostrarFormaPagos($item, $valor, $order);
 
 		return $respuesta;
 	}

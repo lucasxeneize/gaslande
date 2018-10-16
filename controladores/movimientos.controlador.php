@@ -13,7 +13,9 @@ class ControladorMovimientos{
 		//Util::js_alert("ctrMostrarMovimientos");
 		Util::escribe_log("ctrMostrarMovimientos");
 
-		$respuesta = ModeloMovimientos::mdlMostrarMovimientos($item, $valor);
+		$order=null;
+
+		$respuesta = ModeloMovimientos::mdlMostrarMovimientos($item, $valor, $order);
 
 		return $respuesta;
 	}

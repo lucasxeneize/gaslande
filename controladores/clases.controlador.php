@@ -1,33 +1,35 @@
 <?php
 
-require_once "conexion.php";
 
-class ModeloFormaPagos{
+class ControladorClases{
 
 	/*=============================================
-	MOSTRAR FORMA PAGO/S
+	MOSTRAR CLASE/S
 	=============================================*/
 
-	static public function mdlMostrarFormaPagos($item, $valor, $order){
+	static public function ctrMostrarClases($item, $valor){
 
-		return Conexion::query("forma_pago", $item, $valor, $order);
+		Util::js_console_log("ctrMostrarClases");
+		$order="nombre";
 
+		$respuesta = ModeloClases::mdlMostrarClases($item, $valor, $order);
+
+		return $respuesta;
 	}
 
 	/*=============================================
-	CREAR FORMA PAGO
+	CREAR CLASE
 	=============================================*/
 
 
 	/*=============================================
-	EDITAR FORMA PAGO
+	EDITAR CLASE
 	=============================================*/
+
 
 	
 	/*=============================================
-	BORRAR FORMA PAGO
+	BORRAR CLASE
 	=============================================*/
 
-
 }
-

@@ -2,30 +2,30 @@
 
 require_once "conexion.php";
 
-class ModeloFormaPagos{
+class ModeloClases{
 
 	/*=============================================
-	MOSTRAR FORMA PAGO/S
+	MOSTRAR CLASES
 	=============================================*/
 
-	static public function mdlMostrarFormaPagos($item, $valor, $order){
+	static public function mdlMostrarClases($item, $valor, $order){
 
-		return Conexion::query("forma_pago", $item, $valor, $order);
+		return Conexion::query("clases", $item, $valor, $order);
 
 	}
 
 	/*=============================================
-	CREAR FORMA PAGO
+	CREAR CLASES
 	=============================================*/
 
 
 	/*=============================================
-	EDITAR FORMA PAGO
+	EDITAR CLASES
 	=============================================*/
 
 	
 	/*=============================================
-	BORRAR FORMA PAGO
+	BORRAR CLASES
 	=============================================*/
 
 
