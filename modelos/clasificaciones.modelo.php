@@ -2,30 +2,30 @@
 
 require_once "conexion.php";
 
-class ModeloClases{
+class ModeloClasificaciones{
 
 	/*=============================================
-	MOSTRAR CLASES
+	MOSTRAR CLASIFICACIONES
 	=============================================*/
 
-	static public function mdlMostrarClases($item, $valor, $order){
+	static public function mdlMostrarClasificaciones($item, $valor, $order){
 
 		return Conexion::query("clasificaciones", $item, $valor, $order);
 
 	}
 
 	/*=============================================
-	CREAR CLASES
+	CREAR CLASIFICACIONES
 	=============================================*/
 
 
 	/*=============================================
-	EDITAR CLASES
+	EDITAR CLASIFICACIONES
 	=============================================*/
 
 	
 	/*=============================================
-	BORRAR CLASES
+	BORRAR CLASIFICACIONES
 	=============================================*/
 
 

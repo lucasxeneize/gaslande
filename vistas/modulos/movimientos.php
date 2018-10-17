@@ -14,12 +14,12 @@
 
 	</div>
 
-  <div class="form-group row">
-
+  
+  <div class="form-group row border">
     <!-- ENTRADA PARA SELECCIONAR INGRESO/EGRESO -->
     <label for="tipo" class="col-sm-2 col-form-label">Tipo movimiento</label>
 
-    <div class="col-sm-3">
+    <!--div class="col-sm-3">
       <select class="form-control" name="tipo">
           
           <option value="0">Selecionar tipo</option>
@@ -30,13 +30,63 @@
 
         </select>
 
+      </div-->
+
+    <div class="form-check form-check-inline">
+    
+      <input class="form-check-input" type="radio" name="radioIE" id="radioIE" value="I">
+    
+      <label class="form-check-label" for="inlineRadio1">Ingreso</label>
+    
+    </div>
+    
+    <div class="form-check form-check-inline">
+    
+      <input class="form-check-input" type="radio" name="radioIE" id="radioIE" value="E">
+    
+      <label class="form-check-label" for="inlineRadio2">Egreso</label>
+    
+    </div>
+    
+    <!--div class="form-check form-check-inline">
+    
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" disabled>
+    
+      <label class="form-check-label" for="inlineRadio3">3 (disabled)</label>
+    
+    </div-->
+
+  </div>
+
+  <!-- FIJO_VARIABLE -->
+  <div class="form-group row">
+
+    <label for="lblTipo" class="col-sm-2 col-form-label">Fluctuación</label>
+
+      <div class="form-check form-check-inline">
+    
+        <input class="form-check-input" type="radio" name="radioFluctuacion" id="inlineRadio1" value="option1">
+      
+        <label class="form-check-label" for="inlineRadio1">Fijo</label>
+      
+      </div>
+      
+      <div class="form-check form-check-inline">
+      
+        <input class="form-check-input" type="radio" name="radioFluctuacion" id="inlineRadio2" value="option2">
+      
+        <label class="form-check-label" for="inlineRadio2">Variable</label>
+      
       </div>
 
-    <!-- ENTRADA PARA SELECCIONAR FORMA PAGO -->
+  </div>
+
+  <!-- ENTRADA PARA SELECCIONAR FORMA PAGO -->
+   <div class="form-group row">  
     <label for="clase" class="col-sm-2 col-form-label">Clasificación</label>
 
     <div class="col-sm-5">
-      <select class="form-control" name="clase" id="clase" onchange="">
+      <select class="form-control" name="clase" id="clasificacion" onchange="selectClasificacion()">
           
           <option value="">Selecionar clasificación</option>
 
@@ -45,12 +95,12 @@
           $item = null;
           $valor = null;
 
-          $obj = ControladorClases::ctrMostrarClases($item, $valor);
+          $obj = ControladorClasificaciones::ctrMostrarClasificaciones($item, $valor);
 
 
           foreach ($obj as $key => $value) {
            
-            echo '<option value="'.$value["id"].'">'.$value["nombre"].'</option>';
+            echo '<option clasificacionIE="'.$value["ingreso_egreso"].'" clasificacionFV="'.$value["fijo_variable"].'" value="'.$value["id"].'">'.$value["ingreso_egreso"].'-'.$value["fijo_variable"].'-'.$value["nombre"].'</option>';
 
           }
 
@@ -59,7 +109,6 @@
         </select>
 
     </div>
-
 
   </div>
 

@@ -1,33 +1,35 @@
 <?php
 
-require_once "conexion.php";
 
-class ModeloClases{
+class ControladorClasificaciones{
 
 	/*=============================================
-	MOSTRAR CLASES
+	MOSTRAR CLASE/S
 	=============================================*/
 
-	static public function mdlMostrarClases($item, $valor, $order){
+	static public function ctrMostrarClasificaciones($item, $valor){
 
-		return Conexion::query("clasificaciones", $item, $valor, $order);
+		Util::js_console_log("ctrMostrarClasificaciones");
+		$order="ingreso_egreso,fijo_variable,nombre";
 
+		$respuesta = ModeloClasificaciones::mdlMostrarClasificaciones($item, $valor, $order);
+
+		return $respuesta;
 	}
 
 	/*=============================================
-	CREAR CLASES
+	CREAR CLASE
 	=============================================*/
 
 
 	/*=============================================
-	EDITAR CLASES
+	EDITAR CLASE
 	=============================================*/
+
 
 	
 	/*=============================================
-	BORRAR CLASES
+	BORRAR CLASE
 	=============================================*/
 
-
 }
-
