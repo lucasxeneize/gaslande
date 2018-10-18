@@ -1,10 +1,10 @@
 
-<form method="post">
+<form id="formulario" method="post">
 	
 	<!-- FECHA -->
 	<div class="form-group row">
 
-		<label for="datFecha" class="col-sm-2 col-form-label">Fecha</label>
+		<label for="fecha" class="col-sm-2 col-form-label">Fecha</label>
 
 		<div class="col-sm-3">
 
@@ -19,22 +19,9 @@
     <!-- ENTRADA PARA SELECCIONAR INGRESO/EGRESO -->
     <label for="tipo" class="col-sm-2 col-form-label">Tipo movimiento</label>
 
-    <!--div class="col-sm-3">
-      <select class="form-control" name="tipo">
-          
-          <option value="0">Selecionar tipo</option>
-
-          <option value="1">INGRESO</option>
-
-          <option value="2">EGRESO</option>
-
-        </select>
-
-      </div-->
-
     <div class="form-check form-check-inline">
     
-      <input class="form-check-input" type="radio" name="radioIE" id="radioIE" value="I">
+      <input class="form-check-input" type="radio" name="radioIE" id="radioIE" value="I" onclick="validaSelectClasificacion()">
     
       <label class="form-check-label" for="inlineRadio1">Ingreso</label>
     
@@ -42,7 +29,7 @@
     
     <div class="form-check form-check-inline">
     
-      <input class="form-check-input" type="radio" name="radioIE" id="radioIE" value="E">
+      <input class="form-check-input" type="radio" name="radioIE" id="radioIE" value="E" onclick="validaSelectClasificacion()">
     
       <label class="form-check-label" for="inlineRadio2">Egreso</label>
     
@@ -65,7 +52,7 @@
 
       <div class="form-check form-check-inline">
     
-        <input class="form-check-input" type="radio" name="radioFluctuacion" id="inlineRadio1" value="option1">
+        <input class="form-check-input" type="radio" name="radioFV" id="radioFV" value="F" onclick="validaSelectClasificacion()">
       
         <label class="form-check-label" for="inlineRadio1">Fijo</label>
       
@@ -73,7 +60,7 @@
       
       <div class="form-check form-check-inline">
       
-        <input class="form-check-input" type="radio" name="radioFluctuacion" id="inlineRadio2" value="option2">
+        <input class="form-check-input" type="radio" name="radioFV" id="radioFV" value="V" onclick="validaSelectClasificacion()">
       
         <label class="form-check-label" for="inlineRadio2">Variable</label>
       
@@ -81,12 +68,12 @@
 
   </div>
 
-  <!-- ENTRADA PARA SELECCIONAR FORMA PAGO -->
+  <!-- ENTRADA PARA SELECCIONAR CLASIFICACION -->
    <div class="form-group row">  
     <label for="clase" class="col-sm-2 col-form-label">Clasificación</label>
 
     <div class="col-sm-5">
-      <select class="form-control" name="clase" id="clasificacion" onchange="selectClasificacion()">
+      <select class="form-control" name="clasificacion" id="clasificacion" onchange="selectClasificacion()">
           
           <option value="">Selecionar clasificación</option>
 

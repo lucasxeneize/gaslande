@@ -27,21 +27,24 @@ class ControladorMovimientos{
 	static public function ctrCrearMovimiento(){
 		Util::js_console_log('ctrCrearMovimiento');
 		//Util::js_console_log($_POST);
+		//Util::js_alert($_POST["clasificacion"]);
 
 		if(isset($_POST["fecha"])
 			&& (isset($_POST["monto"]))
-			&& (isset($_POST["tipo"]) && ($_POST["tipo"]==1 || $_POST["tipo"]==2)) // && $_POST["tipo"] IN (1,2))
 			&& (isset($_POST["descripcion"]))
+			&& (isset($_POST["clasificacion"]))
 			&& (isset($_POST["forma_pago"]) && $_POST["forma_pago"]>0)
+			&& (isset($_POST["cuotas"]))
 		){
 
 			Util::js_console_log("ctrCrearMovimiento condición if OK");
 			
 			$datos = array("fecha" => $_POST["fecha"],
 					"monto" => $_POST["monto"],
-					"ingreso_egreso" => $_POST["tipo"],
 					"descripcion" => $_POST["descripcion"],
-					"id_forma_pago" => $_POST["forma_pago"]);
+					"id_clasificacion" => $_POST["clasificacion"],
+					"id_forma_pago" => $_POST["forma_pago"],
+					"cuotas" => $_POST["cuotas"]);
 
 			Util::escribe_log("ctrCrearMovimiento parametros: ".json_encode($_POST));
 			
@@ -69,6 +72,28 @@ class ControladorMovimientos{
 
 			}
 		}else{
+			
+			//Util::js_alert("Algo salio mal.");
+			if(!isset($_POST["fecha"]))
+				Util::js_alert("falto POST fecha.");
+			if(!isset($_POST["monto"]))
+				Util::js_alert("falto POST monto.");
+			if(!isset($_POST["descripcion"]))
+				Util::js_alert("falto POST descripcion.");
+			if(!isset($_POST["clasificacion"]))
+				Util::js_alert("falto POST clasificacion.");
+			if(!isset($_POST["forma_pago"]))
+				Util::js_alert("falto POST forma_pago.");
+			if(!isset($_POST["cuotas"]))
+				Util::js_alert("falto POST cuotas.");
+
+
+			if(isset($_POST["monto"]) && $_POST["monto"]==0)
+				Util::js_alert("Debe ingresar monto.");
+
+			/*if(!isset($_POST["tipo"]))
+				Util::js_alert("no existe tipo.");*/
+
 			if(isset($_POST["forma_pago"]) && $_POST["forma_pago"]==0)
 				Util::js_alert("Debe seleccionar forma de pago.");
 

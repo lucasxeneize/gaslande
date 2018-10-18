@@ -22,13 +22,14 @@ class ModeloMovimientos{
 
 		Util::js_console_log('mdlIngresarMovimiento');
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO movimientos(id, fecha, monto, ingreso_egreso, descripcion, id_forma_pago) VALUES (NULL, :fecha, :monto, :ingreso_egreso, :descripcion, :id_forma_pago)");
+		$stmt = Conexion::conectar()->prepare("INSERT INTO movimientos(id, fecha, monto, descripcion, id_clasificacion, id_forma_pago, cuotas) VALUES (NULL, :fecha, :monto, :descripcion, :id_clasificacion, :id_forma_pago, :cuotas)");
 
 		$stmt->bindParam(":fecha", $datos["fecha"], PDO::PARAM_STR);
 		$stmt->bindParam(":monto", $datos["monto"], PDO::PARAM_STR);
-		$stmt->bindParam(":ingreso_egreso", $datos["ingreso_egreso"], PDO::PARAM_STR);
 		$stmt->bindParam(":descripcion", $datos["descripcion"], PDO::PARAM_STR);
+		$stmt->bindParam(":id_clasificacion", $datos["id_clasificacion"], PDO::PARAM_STR);
 		$stmt->bindParam(":id_forma_pago", $datos["id_forma_pago"], PDO::PARAM_STR);
+		$stmt->bindParam(":cuotas", $datos["cuotas"], PDO::PARAM_STR);
 
 		if($stmt->execute()){
 
