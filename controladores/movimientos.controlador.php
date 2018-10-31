@@ -11,7 +11,7 @@ class ControladorMovimientos{
 
 		Util::js_console_log("ctrMostrarMovimientos");
 		//Util::js_alert("ctrMostrarMovimientos");
-		Util::escribe_log("ctrMostrarMovimientos");
+		//Util::escribe_log("ctrMostrarMovimientos");
 
 		$order=null;
 
@@ -19,6 +19,30 @@ class ControladorMovimientos{
 
 		return $respuesta;
 	}
+
+	/*=============================================
+	MOSTRAR MOVIMIENTOS POR MES
+	=============================================*/
+	static public function ctrMostrarMovimientosPorMes($anio, $mes){
+		
+		/*$array = array(
+    		"cont" => "1",
+    		"monto" => 777777,
+    		"ingreso_egreso"   => "I"
+			);
+		
+		//var_dump($array);
+	  	return $array;*/
+		
+		Util::js_console_log("ctrMostrarMovimientosPorMes");
+		
+		//SELECT SUM(monto) FROM movimientos WHERE YEAR(fecha)=2018 AND MONTH(fecha)=10
+
+		$respuesta = ModeloMovimientos::mdlMostrarMovimientosPorMes($mes,$anio);
+
+		return $respuesta;
+	}
+
 
 	/*=============================================
 	CREAR MOVIMIENTO
@@ -71,7 +95,7 @@ class ControladorMovimientos{
 				</script>';*/
 
 			}
-		}else{
+		}/*else{
 			
 			//Util::js_alert("Algo salio mal.");
 			if(!isset($_POST["fecha"]))
@@ -94,13 +118,13 @@ class ControladorMovimientos{
 			/*if(!isset($_POST["tipo"]))
 				Util::js_alert("no existe tipo.");*/
 
-			if(isset($_POST["forma_pago"]) && $_POST["forma_pago"]==0)
+			/*if(isset($_POST["forma_pago"]) && $_POST["forma_pago"]==0)
 				Util::js_alert("Debe seleccionar forma de pago.");
 
 			if(isset($_POST["tipo"]) && ($_POST["tipo"]<1 || $_POST["tipo"]>3))
 				Util::js_alert("Debe seleccionar un tipo movimiento valido.");
 
-		}
+		}*/
 
 	}
 

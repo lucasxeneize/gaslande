@@ -15,6 +15,23 @@ class ModeloMovimientos{
 	}
 
 	/*=============================================
+	MOSTRAR MOVIMIENTOS POR MES
+	=============================================*/
+
+	static public function mdlMostrarMovimientosPorMes($mes, $anio){
+
+		$query="SELECT SUM(m.monto) AS monto,c.ingreso_egreso FROM movimientos m, clasificaciones c WHERE YEAR(m.fecha) = ".date("Y")." AND MONTH(m.fecha) = ".date("m")." AND c.id=m.id_clasificacion GROUP BY c.ingreso_egreso";
+
+		//$query="SET @numero=0;";
+
+		//$query=$query."SELECT  (@numero:= @numero+1) AS cont, SUM(m.monto) AS monto,c.ingreso_egreso FROM movimientos m, clasificaciones c WHERE YEAR(m.fecha) = ".date("Y")." AND MONTH(m.fecha) = ".date("m")." AND c.id=m.id_clasificacion GROUP BY c.ingreso_egreso";
+
+		//Util::js_console_log("mdlMostrarMovimientosPorMes query>>".$query);
+
+		return Conexion::query_2($query); 
+	}
+
+	/*=============================================
 	CREAR MOVIMIENTO
 	=============================================*/
 

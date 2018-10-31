@@ -31,7 +31,7 @@
     
       <input class="form-check-input" type="radio" name="radioIE" id="radioIE" value="E" onclick="validaSelectClasificacion()">
     
-      <label class="form-check-label" for="inlineRadio2">Egreso</label>
+      <label class="form-check-label" for="inlineRadio2">Gasto</label>
     
     </div>
     
